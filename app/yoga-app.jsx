@@ -1045,6 +1045,12 @@ function ElevenSettings() {
   const [myVoices, setMyVoices] = React.useState(null); // null | [] | [{voice_id,name,...}]
   const [loadingVoices, setLoadingVoices] = React.useState(false);
 
+  // Auto-load account voices whenever the panel opens (if key already saved).
+  // Prevents the preset library list showing on re-open and confusing users.
+  React.useEffect(() => {
+    if (cfg.apiKey) loadVoices(cfg.apiKey);
+  }, []);
+
   const update = (patch) => {
     const next = { ...cfg, ...patch };
     setCfg(next);
