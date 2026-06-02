@@ -2,22 +2,24 @@
 // Strategy: network-first for app shell, cache-first for CDN assets
 // ElevenLabs API calls are never cached
 
-const CACHE_APP = 'yoga-app-v1';
-const CACHE_CDN = 'yoga-cdn-v1';
+const CACHE_APP = 'yoga-app-v2';
+const CACHE_CDN = 'yoga-cdn-v2';
+
+const BASE = '/daily-yoga';
 
 const APP_SHELL = [
-  '/',
-  '/index.html',
-  '/app/yoga-app.css',
-  '/app/yoga-app.jsx',
-  '/app/yoga-data.js',
-  '/app/elevenlabs.js',
-  '/app/instructor.jsx',
-  '/app/pose-scene.jsx',
-  '/app/yoga-script.js',
-  '/app/yoga-kling.js',
-  '/tweaks-panel.jsx',
-  '/manifest.webmanifest',
+  BASE + '/',
+  BASE + '/index.html',
+  BASE + '/app/yoga-app.css',
+  BASE + '/app/yoga-app.jsx',
+  BASE + '/app/yoga-data.js',
+  BASE + '/app/elevenlabs.js',
+  BASE + '/app/instructor.jsx',
+  BASE + '/app/pose-scene.jsx',
+  BASE + '/app/yoga-script.js',
+  BASE + '/app/yoga-kling.js',
+  BASE + '/tweaks-panel.jsx',
+  BASE + '/manifest.webmanifest',
 ];
 
 const CDN_ORIGINS = [
@@ -114,7 +116,7 @@ async function networkFirst(request, cacheName) {
     if (cached) return cached;
     // Offline fallback — return cached index.html for navigation requests
     if (request.mode === 'navigate') {
-      return cache.match('/index.html');
+      return cache.match(BASE + '/index.html');
     }
     throw new Error('Network unavailable and no cache for: ' + request.url);
   }

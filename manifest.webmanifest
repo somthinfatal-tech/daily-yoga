@@ -2,13 +2,13 @@
   "name": "Daily Yoga",
   "short_name": "Daily Yoga",
   "description": "Adaptive 7-day yoga practice — spinal care edition",
-  "start_url": "/",
+  "start_url": "/daily-yoga/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#0a0a0c",
   "background_color": "#0a0a0c",
   "lang": "en",
-  "scope": "/",
+  "scope": "/daily-yoga/",
   "categories": ["health", "fitness", "lifestyle"],
   "icons": [
     {
