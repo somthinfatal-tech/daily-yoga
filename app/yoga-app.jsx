@@ -511,18 +511,18 @@ function SessionPlayer({ program, dayIdx, theme, resumeFrom, onExit, onComplete,
     setTt(slide.d || 0);
     setTl(slide.d || 0);
     if (voiceOn && slide.t === 'pose') {
+      // Look up hand-crafted voice script; fall back to assembled text.
+      const voiceKey = day.n + '-' + slide.nm + '-' + (slide.sd || 'B');
+      const custom = window.YOGA_VOICE && window.YOGA_VOICE[voiceKey];
       const sideText = slide.sd === 'R' ? 'Right side. ' : slide.sd === 'L' ? 'Left side. ' : '';
-      const text = [
-        sideText + slide.nm + '.',
-        slide.sub ? slide.sub + '.' : '',
-        slide.ins,
-        slide.rp || '',
-      ].filter(Boolean).join(' ');
-      setTimeout(() => speakSmart(text), 350);
+      const fallback = (sideText + slide.nm + '. ' + slide.ins).trim();
+      setTimeout(() => speakSmart(custom || fallback), 350);
     } else if (voiceOn && slide.t === 'seg') {
       setTimeout(() => speakSmart(slide.title + '.' + (slide.sub ? ' ' + slide.sub + '.' : '')), 350);
     } else if (voiceOn && slide.t === 'prep') {
-      setTimeout(() => speakSmart('Before we begin. ' + slide.title + '. ' + slide.ins), 350);
+      const prepKey = day.n + '-prep-' + si;
+      const customPrep = window.YOGA_VOICE && window.YOGA_VOICE[prepKey];
+      setTimeout(() => speakSmart(customPrep || ('Before we begin. ' + slide.title + '. ' + slide.ins)), 350);
     } else if (voiceOn && slide.t === 'intro') {
       setTimeout(() => speakSmart('Day ' + day.n + '. ' + day.focus + '.'), 350);
     } else if (voiceOn && slide.t === 'end') {
