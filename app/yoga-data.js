@@ -483,15 +483,15 @@
     // ── Block 2: Shoulder and Pectoral Opening ──
     { t: 'seg', title: 'Block 2 — Shoulder & Pectoral Opening', sub: 'Counter-posture for forward head', d: 20 },
 
-    { t: 'pose', nm: 'Doorway Chest Stretch', sub: 'Pectoral and anterior shoulder',
-      sd: 'L', cat: 'standing',
+    { t: 'pose', nm: 'Doorway Chest Stretch', sub: 'Right chest opening',
+      sd: 'R', cat: 'standing',
       ins: 'Stand in a doorway. Place the right forearm on the door frame at 90°. Step forward gently with the right foot until you feel a stretch across the right chest and front of the shoulder. Hold 6 breaths. Keep the neck long and ears over shoulders.',
       d: 100,
       rp: 'Forearm on frame at 90°. Step forward. Chest opens. 6 breaths.',
       w: 'T1-T3: if you feel sensation at T1-T3 during this stretch, reduce the forward step.' },
 
-    { t: 'pose', nm: 'Doorway Chest Stretch', sub: 'Left side',
-      sd: 'R', cat: 'standing',
+    { t: 'pose', nm: 'Doorway Chest Stretch', sub: 'Left chest opening',
+      sd: 'L', cat: 'standing',
       ins: 'Left forearm on the door frame at 90°. Step forward with the left foot. Open across the left chest and shoulder. 6 breaths. Notice asymmetry between left and right — this reveals habitual posture patterns.',
       d: 100,
       rp: 'Left forearm on frame. Step forward. 6 breaths.',

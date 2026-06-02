@@ -516,13 +516,13 @@ function SessionPlayer({ program, dayIdx, theme, resumeFrom, onExit, onComplete,
         sideText + slide.nm + '.',
         slide.sub ? slide.sub + '.' : '',
         slide.ins,
-        slide.rp ? slide.rp + '.' : '',
+        slide.rp || '',
       ].filter(Boolean).join(' ');
       setTimeout(() => speakSmart(text), 350);
     } else if (voiceOn && slide.t === 'seg') {
       setTimeout(() => speakSmart(slide.title + '.' + (slide.sub ? ' ' + slide.sub + '.' : '')), 350);
     } else if (voiceOn && slide.t === 'prep') {
-      setTimeout(() => speakSmart('Before we begin. ' + slide.title + '.'), 350);
+      setTimeout(() => speakSmart('Before we begin. ' + slide.title + '. ' + slide.ins), 350);
     } else if (voiceOn && slide.t === 'intro') {
       setTimeout(() => speakSmart('Day ' + day.n + '. ' + day.focus + '.'), 350);
     } else if (voiceOn && slide.t === 'end') {
