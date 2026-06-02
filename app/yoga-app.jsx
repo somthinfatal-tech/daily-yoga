@@ -511,10 +511,13 @@ function SessionPlayer({ program, dayIdx, theme, resumeFrom, onExit, onComplete,
     setTt(slide.d || 0);
     setTl(slide.d || 0);
     if (voiceOn && slide.t === 'pose') {
-      // Keep it short — just the pose name + first cue. Avoids cramming the hold time.
       const sideText = slide.sd === 'R' ? 'Right side. ' : slide.sd === 'L' ? 'Left side. ' : '';
-      const firstCue = (slide.ins.split('.').slice(0, 2).join('.') + '.').trim();
-      const text = sideText + slide.nm + '. ' + firstCue;
+      const text = [
+        sideText + slide.nm + '.',
+        slide.sub ? slide.sub + '.' : '',
+        slide.ins,
+        slide.rp ? slide.rp + '.' : '',
+      ].filter(Boolean).join(' ');
       setTimeout(() => speakSmart(text), 350);
     } else if (voiceOn && slide.t === 'seg') {
       setTimeout(() => speakSmart(slide.title + '.' + (slide.sub ? ' ' + slide.sub + '.' : '')), 350);
