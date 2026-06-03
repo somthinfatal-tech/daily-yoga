@@ -2,8 +2,8 @@
 // Strategy: network-first for app shell, cache-first for CDN assets
 // ElevenLabs API calls are never cached
 
-const CACHE_APP = 'yoga-app-v3';
-const CACHE_CDN = 'yoga-cdn-v3';
+const CACHE_APP = 'yoga-app-v4';
+const CACHE_CDN = 'yoga-cdn-v4';
 
 const BASE = '/daily-yoga';
 
